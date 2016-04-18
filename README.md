@@ -8,3 +8,5 @@ bower install
 ```
 npm start
 ```
+
+Note: Default port is at `:3004`
