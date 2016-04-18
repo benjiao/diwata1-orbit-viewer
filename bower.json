@@ -1,0 +1,24 @@
+{
+  "name": "orbit-viewer",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Benjie Jiao <hi@benjie.me>"
+  ],
+  "license": "MIT",
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "leaflet": "^0.7.7",
+    "jquery": "^2.2.3",
+    "moment": "^2.13.0",
+    "moment-timezone": "^0.5.3"
+  }
+}
