@@ -9,7 +9,7 @@ $(function() {
         accessToken: 'your.mapbox.public.access.token'
     }).addTo(main_map);
 
-    $.getJSON('http://api.orbit.phl-microsat.xyz/diwata1.geojson', function(data){
+    $.getJSON('http://api.orbit.phl-microsat.xyz/diwata1-passes.geojson', function(data){
         console.log(data);
 
         for(i=0; i<data.length; i++){
