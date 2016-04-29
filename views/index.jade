@@ -1,10 +1,13 @@
 extends layout
 
 block content
-  div#main-map
+  div#site-wrapper.row
+      div.col-md-12#map-column
+        div#main-map
 
   script(src='/bower-components/leaflet/dist/leaflet.js')
   script(src='/bower-components/jquery/dist/jquery.min.js')
+  script(src='/bower-components/bootstrap/dist/js/bootstrap.min.js')
   script(src='/bower-components/moment/min/moment.min.js')
   script(src='/bower-components/moment-timezone/builds/moment-timezone-with-data.min.js')
   script(src='/javascripts/main.js')
