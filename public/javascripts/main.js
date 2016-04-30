@@ -1,12 +1,14 @@
 $(function() {
-    var main_map = L.map('main-map').setView([12.5, 121], 3);
+
+    var main_map = L.map('main-map', {
+        maxBounds:  L.latLngBounds(L.latLng(-90, -180), L.latLng(90, 180))
+    }).setView([12.5, 121], 3);
 
     L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
         maxZoom: 18,
         minZoom: 3,
-        id: 'your.mapbox.project.id',
-        accessToken: 'your.mapbox.public.access.token',
+        noWrap: true,
     }).addTo(main_map);
 
 
