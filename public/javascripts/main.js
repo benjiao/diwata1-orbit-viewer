@@ -11,8 +11,16 @@ $(function() {
 
     $.getJSON('http://api.orbit.phl-microsat.xyz/diwata1.geojson', function(data){
         console.log(data);
+
+        for(i=0; i<data.length; i++){
+            data[i].features[0].properties['is_entry_point'] = true
+        }
         var geoJsonLayer = L.geoJson(data, {
-            style: function(feature){},
+            style: function(feature){
+                if (feature.properties.is_entry_point) {
+                    return {color: '#0000FF' }
+                }
+            },
             pointToLayer: function(feature, latlng) {
                 return new L.CircleMarker(latlng, {radius: 2, fillOpacity: 0.85, color: '#FF0000'});
             },
