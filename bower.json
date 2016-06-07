@@ -20,6 +20,7 @@
     "jquery": "^2.2.3",
     "moment": "^2.13.0",
     "moment-timezone": "^0.5.3",
-    "bootstrap": "^3.3.6"
+    "bootstrap": "^3.3.6",
+    "mustache.js": "mustache#^2.2.1"
   }
 }

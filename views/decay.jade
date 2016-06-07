@@ -4,45 +4,21 @@ block css_includes
 
 block content
     div.container.loading
-        | 
     div.container.main(hidden="true")
+        h2.decay-title Diwata-1 - Orbital Decay Report
+        br
         div.row
-            div.col12
-                h1.decay-title Diwata-1 Status Report
-                br
-                table.table
-                    tr
-                        td Simulation Time: 
-                        td.simulation-time -
-                    tr
-                        td Norad Catalog Number: 
-                        td 41463
-                    tr 
-                        td International Designator: 
-                        td 1998-067HT
-                    tr 
-                        td TLE Epoch (UTC): 
-                        td.tle-epoch
-                    tr
-                        td NORAD TLE:
-                        td
-                            pre.norad-tle.
-                    tr
-                        td Decay Altitude: 
-                        td.decay-altitude
-                    tr
-                        td Projected End of Lifetime: 
-                        td.projected-eol
-                    tr
-                        td Altitude at End of Lifetime: 
-                        td.altitude-at-eol
-
-                h3.decay-title Time vs. Altitude Graph
+            div.col-md-12.decay-results-table
+        div.row
+            div.col-md-12
+                h3.decay-title
+                    | Time vs. Altitude Graph
                 div#decay-graph
 
     script(src='/bower-components/leaflet/dist/leaflet.js')
     script(src='/bower-components/jquery/dist/jquery.min.js')
     script(src='/bower-components/moment/min/moment.min.js')
     script(src='/bower-components/moment-timezone/builds/moment-timezone-with-data.min.js')
+    script(src='/bower-components/mustache.js/mustache.min.js')
     script(src='http://canvasjs.com/assets/script/canvasjs.min.js')
     script(src='/javascripts/decay.js')

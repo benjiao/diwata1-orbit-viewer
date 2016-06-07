@@ -1,11 +1,10 @@
 $(function() {
     var dataPoints = []
     $.getJSON('http://api.orbit.phl-microsat.xyz/decay/diwata1', function(results){
+        update_fields(results.meta);
 
         $('.loading').hide();
         $('.main').show();
-        
-        update_fields(results.meta);
 
         for (var i=0; i < results.data.length; i++) {
             dataPoints.push({x: moment(results.data[i].timestamp).toDate(), y: results.data[i].altitude});
@@ -21,7 +20,8 @@ $(function() {
             },
             axisY :{
                 title: "Altitude (km)",
-                titleFontSize: 14
+                titleFontSize: 14,
+                labelFontSize: 12
             },
             data: [{
                 type: 'line',
@@ -30,15 +30,17 @@ $(function() {
             }]
         });
         chart.render();
+
     });
 });
           
 function update_fields(meta){
-    console.log(meta);
-    $('.simulation-time').html(meta.time_computed);
-    $('.norad-tle').html(
-        "DIWATA-1\n" +
-        meta.tle1 + "\n" +
-        meta.tle2 + "\n" 
-    )
+    $.get('templates/decay-details.html', function(template){
+        data = {
+            simulation_time: meta.time_computed,
+            tle1: meta.tle1,
+            tle2: meta.tle2
+        }
+        $('.decay-results-table').html(Mustache.render(template, data));
+    })
 }
