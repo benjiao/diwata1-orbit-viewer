@@ -3,43 +3,39 @@ block css_includes
     link(rel='stylesheet', href='/stylesheets/decay.css')
 
 block content
-    div.container
+    div.container.loading
+        | 
+    div.container.main(hidden="true")
         div.row
             div.col12
                 h1.decay-title Diwata-1 Status Report
                 br
                 table.table
                     tr
-                        td Simulation Date: 
-                        td 1 June 2016
-                    tr
                         td Simulation Time: 
-                        td 1100H
+                        td.simulation-time -
                     tr
-                        td Diwata-1 Norad Catalog Number: 
+                        td Norad Catalog Number: 
                         td 41463
                     tr 
-                        td Diwata-1 International Designator: 
+                        td International Designator: 
                         td 1998-067HT
                     tr 
                         td TLE Epoch (UTC): 
-                        td 31 May 2016 19:35:45.313
+                        td.tle-epoch
                     tr
                         td NORAD TLE:
                         td
-                            pre.
-                                DIWATA-1
-                                1 41463U 98067HT 16152.81649668 .00008724 00000-0 13331-3 0
-                                2 41463 51.6427 139.5985 0001163 132.3968 294.6637 15.55261949
+                            pre.norad-tle.
                     tr
                         td Decay Altitude: 
-                        td 120 km above sea level
+                        td.decay-altitude
                     tr
                         td Projected End of Lifetime: 
-                        td 3 Aug 2021
+                        td.projected-eol
                     tr
                         td Altitude at End of Lifetime: 
-                        td 122.423305 km
+                        td.altitude-at-eol
 
                 h3.decay-title Time vs. Altitude Graph
                 div#decay-graph

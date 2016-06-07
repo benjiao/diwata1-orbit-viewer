@@ -1,8 +1,14 @@
 $(function() {
     var dataPoints = []
-    $.getJSON('http://api.orbit.phl-microsat.xyz/decay/diwata1', function(data){
-        for (var i=0; i < data.length; i++) {
-            dataPoints.push({x: moment(data[i].timestamp).toDate(), y: data[i].altitude});
+    $.getJSON('http://api.orbit.phl-microsat.xyz/decay/diwata1', function(results){
+
+        $('.loading').hide();
+        $('.main').show();
+        
+        update_fields(results.meta);
+
+        for (var i=0; i < results.data.length; i++) {
+            dataPoints.push({x: moment(results.data[i].timestamp).toDate(), y: results.data[i].altitude});
         }
         var chart = new CanvasJS.Chart("decay-graph", {
             zoomEnabled: true,
@@ -24,7 +30,15 @@ $(function() {
             }]
         });
         chart.render();
-
     });
 });
           
+function update_fields(meta){
+    console.log(meta);
+    $('.simulation-time').html(meta.time_computed);
+    $('.norad-tle').html(
+        "DIWATA-1\n" +
+        meta.tle1 + "\n" +
+        meta.tle2 + "\n" 
+    )
+}
