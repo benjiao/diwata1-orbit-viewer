@@ -11,4 +11,9 @@ router.get('/decay', function(req, res, next) {
     res.render('decay', { title: 'Diwata 1 - Orbital Decay Reports'})
 });
 
+/* GET orbital decay reports generator */
+router.get('/passes', function(req, res, next) {
+    res.render('passes', { title: 'Diwata 1 - Upcoming Passes'})
+});
+
 module.exports = router;

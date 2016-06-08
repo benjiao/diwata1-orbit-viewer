@@ -1,0 +1,22 @@
+<table class='table table-bordered table-condensed table-hover'>
+    <tr>
+        <th>Rise Time</th>
+        <th>Rise Azimuth</th>
+        <th>Max Altitude Time</th>
+        <th>Max Altitude</th>
+        <th>Set Time</th>
+        <th>Set Azimuth</th>
+        <th>Duration (s)</th>
+    </tr>
+    {{#passes}}
+    <tr>
+        <td>{{rise_time}}</td>
+        <td>{{rise_azimuth}}</td>
+        <td>{{max_altitude_time}}</td>
+        <td>{{max_altitude}}</td>
+        <td>{{set_time}}</td>
+        <td>{{set_azimuth}}</td>       
+        <td>{{duration}}</td>       
+    </tr>
+    {{/passes}}
+</table>

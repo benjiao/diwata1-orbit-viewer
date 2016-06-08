@@ -1,0 +1,21 @@
+extends layout
+block css_includes
+    link(rel='stylesheet', href='/stylesheets/passes.css')
+
+block content
+    div.container.loading
+    div.container-fluid.main(hidden="true")
+        div.row
+            div.col-md-12
+                h3 Diwata Passes - ASTI Ground Receiving Station
+                <p>Orbital passes within 30 degrees from horizon</p>
+                div.asti-passes
+
+
+
+    script(src='/bower-components/leaflet/dist/leaflet.js')
+    script(src='/bower-components/jquery/dist/jquery.min.js')
+    script(src='/bower-components/moment/min/moment.min.js')
+    script(src='/bower-components/moment-timezone/builds/moment-timezone-with-data.min.js')
+    script(src='/bower-components/mustache.js/mustache.min.js')
+    script(src='/javascripts/passes.js')
