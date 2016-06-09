@@ -1,6 +1,6 @@
 $(function() {
     var dataPoints = []
-    $.getJSON('http://api.orbit.phl-microsat.xyz/decay/diwata1', function(results){
+    $.getJSON('http://api.orbit.phl-microsat.xyz/decay/41463', function(results){
 
         $('.loading').hide();
         $('.main').show();
@@ -35,7 +35,7 @@ $(function() {
 
     });
 });
-          
+
 function update_fields(meta, last_item){
     $.get('templates/decay-details.html', function(template){
         data = {
