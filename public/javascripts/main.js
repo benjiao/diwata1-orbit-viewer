@@ -14,7 +14,7 @@ $(function() {
 
     $.getJSON('http://api.orbit.phl-microsat.xyz/diwata1-path.geojson?hours=12', function(data){
         console.log(data);
-        
+
         var orbit_path_layer = L.geoJson(data, {
             style: function(feature){
                 if (feature.properties.is_entry_point) {
@@ -63,7 +63,7 @@ $(function() {
 
     $.getJSON('http://api.orbit.phl-microsat.xyz/diwata1', function(original_coordinates){
         diwata_marker = L.marker([original_coordinates.geometry.coordinates[1], original_coordinates.geometry.coordinates[0]]).addTo(main_map);
-        
+
         setInterval(function(){
             $.getJSON('http://api.orbit.phl-microsat.xyz/diwata1', function(data){
                 diwata_marker.setLatLng(new L.LatLng(data.geometry.coordinates[1], data.geometry.coordinates[0]));
@@ -79,5 +79,3 @@ $(function() {
         }, 5000);
     });
 });
-
-

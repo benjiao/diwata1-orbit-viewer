@@ -1,0 +1,68 @@
+.loading {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    width: 100%;
+    height: 100%;
+    background-image: url('/images/loading.gif');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.decay-title {
+    text-align: center;
+}
+
+#decay-details {
+    color: #333;
+}
+
+.main-map-section {
+    padding-bottom: 12px;
+}
+
+.overview-section {
+    padding-top: 24px;
+    padding-bottom: 40px;
+    color: #eee;
+    background: #3293d2;
+}
+
+.overview-section .list-group{
+    color: #333;
+}
+
+.pass-table-section {
+    padding-top: 24px;
+    padding-bottom: 40px;
+}
+
+.pass-table-section th{
+    background: #3293d2;
+    color: #eee;
+}
+
+.orbital-decay-section {
+    color: #eee;
+    background: #3293d2;
+    padding-top: 24px;
+    padding-bottom: 40px;
+}
+
+#decay-graph{
+    height:400px;
+}
+#main-map {
+    width:100%;
+    height:500px;
+}
+
+.list-group {
+    margin-top: 10px;
+}
+body {
+}
+
+table.pass-table-summary td, table.pass-table-summary th{
+   text-align: center;
+}

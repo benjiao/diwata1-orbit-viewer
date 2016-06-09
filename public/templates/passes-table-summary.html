@@ -1,0 +1,16 @@
+<table class='table table-bordered table-hover pass-table-summary'>
+    <tr>
+        <th>Rise Time (PHT)</th>
+        <th class="hidden-xs hidden-sm hidden-md">Max Alt. Time (PHT)</th>
+        <th>Set Time (PHT)</th>
+        <th class="hidden-xs">Duration (s)</th>
+    </tr>
+    {{#passes}}
+    <tr>
+        <td>{{rise_time}}</td>
+        <td class="hidden-xs hidden-sm hidden-md">{{max_altitude_time}}</td>
+        <td>{{set_time}}</td>
+        <td class="hidden-xs">{{duration}}</td>
+    </tr>
+    {{/passes}}
+</table>

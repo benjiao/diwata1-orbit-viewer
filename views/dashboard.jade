@@ -1,0 +1,55 @@
+extends layout
+block css_includes
+    link(rel='stylesheet', href='/stylesheets/dashboard.css')
+    link(rel='stylesheet', href='/stylesheets/TimeCircles.css')
+
+block content
+    div.container.loading
+    div.container-fluid.main(hidden="true")
+        div.row.main-map-section
+            div.col-sm-12
+                div#main-map
+
+        div.row
+            div.col-sm-12.overview-section
+                div.row#overview
+                    div.col-sm-8#clocks
+                    div.col-sm-4
+                        ul.list-group#position-summary
+                        ul.list-group#tle-meta
+
+
+        div.row.pass-table-section
+            div.col-sm-12
+                div.row
+                    div.col-sm-12
+                        h1 Passes within 48 hours
+                div.row
+                    div.col-sm-6
+                        h3 ASTI GRS
+                        p Orbital passes within 30 degrees from horizon
+                        div.asti-passes
+                    div.col-sm-6
+                        h3 Tohoku GRS
+                        p Orbital passes within 30 degrees from horizon
+                        div.tohoku-passes
+
+        div.row.orbital-decay-section
+            div.col-sm-12
+                h1 Orbital Decay
+                div.row
+                    div.col-sm-6
+                        div#decay-details
+                div.row
+                    div.col-sm-6
+                        div#decay-graph
+                    div.col-sm-6
+
+    script(src='/bower-components/leaflet/dist/leaflet.js')
+    script(src='/bower-components/jquery/dist/jquery.min.js')
+    script(src='/bower-components/moment/min/moment.min.js')
+    script(src='/bower-components/moment-timezone/builds/moment-timezone-with-data.min.js')
+    script(src='/bower-components/mustache.js/mustache.min.js')
+    script(src='http://canvasjs.com/assets/script/canvasjs.min.js')
+    script(src='/javascripts/TimeCircles.js')
+    script(src='/javascripts/dashboard.js')

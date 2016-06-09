@@ -12,6 +12,9 @@ $(function() {
         var chart = new CanvasJS.Chart("decay-graph", {
             zoomEnabled: true,
             animationEnabled: true,
+            title:{
+                text:"Chart Title",
+            },
             axisX:{
                 labelAngle: 30,
                 labelFontSize: 12,

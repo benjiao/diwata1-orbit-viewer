@@ -16,4 +16,9 @@ router.get('/passes', function(req, res, next) {
     res.render('passes', { title: 'Diwata 1 - Upcoming Passes'})
 });
 
+/* GET dashboard */
+router.get('/dashboard', function(req, res, next) {
+    res.render('dashboard', { title: 'Diwata Dashboard'})
+});
+
 module.exports = router;
