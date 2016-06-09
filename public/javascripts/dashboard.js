@@ -120,11 +120,12 @@ function loadDecayGraph(){
         }
 
         window.decay_chart = new CanvasJS.Chart("decay-graph", {
-            zoomEnabled: true,
+            zoomEnabled: false,
             animationEnabled: true,
             title:{
                 text:"Time vs. Altitude Graph",
                 fontSize: 21,
+                padding: 12,
             },
             axisX:{
                 labelAngle: 30,
