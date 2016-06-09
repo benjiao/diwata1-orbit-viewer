@@ -175,6 +175,11 @@ function loadMap(){
     // Add marker for current satellite position
     $.getJSON('http://api.orbit.phl-microsat.xyz/diwata1', function(original_coordinates){
         diwata_marker = L.marker([original_coordinates.geometry.coordinates[1], original_coordinates.geometry.coordinates[0]]).addTo(main_map);
+        updatePositionSummary(
+            original_coordinates.geometry.coordinates[1],
+            original_coordinates.geometry.coordinates[0],
+            original_coordinates.properties.elevation.toFixed(5));
+
         main_map.panTo(new L.LatLng(original_coordinates.geometry.coordinates[1], original_coordinates.geometry.coordinates[0]));
 
         setInterval(function(){
