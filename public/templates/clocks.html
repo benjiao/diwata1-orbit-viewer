@@ -1,56 +1,54 @@
-<div class="col-sm-6">
-    <ul class="list-group">
-        <li class="list-group-item">
-            <div class="row">
-                <div class="col-md-12">
-                    <h3>Pass at ASTI GRS</h3>
-                    <div class="asti-pass-countdown" data-date="{{asti_next_pass}}"></div
+<div class="row">
+    <div class="col-sm-6">
+        <ul class="list-group">
+            <li class="list-group-item">
+                <h3>Pass at ASTI GRS</h3>
+                <div class="asti-pass-countdown" data-date="{{asti_next_pass}}"></div
+            </li>
+            <li class="list-group-item">
+                <b>Rise Time</b><br />
+                {{asti_pass.rise_time}}
+            </li>
+            <li class="list-group-item">
+                <b>Maximum Altitude Time</b><br />
+                {{asti_pass.max_altitude_time}}
+            </li>
+            <li class="list-group-item">
+                <b>Set Time</b><br />
+                {{asti_pass.set_time}}
+            </li>
+            <li class="list-group-item">
+                <b>Duration</b><br />
+                {{asti_pass.duration}}s
+            </li>
+        </ul>
+    </div>
+    <div class="col-sm-6">
+        <ul class="list-group">
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3>Pass at Tohoku GRS</h3>
+                        <div class="tohoku-pass-countdown" data-date="{{tohoku_next_pass}}"></div>
+                    </div>
                 </div>
-            </div>
-        </li>
-        <li class="list-group-item">
-            <b>Rise Time</b><br />
-            {{asti_pass.rise_time}}
-        </li>
-        <li class="list-group-item">
-            <b>Maximum Altitude Time</b><br />
-            {{asti_pass.max_altitude_time}}
-        </li>
-        <li class="list-group-item">
-            <b>Set Time</b><br />
-            {{asti_pass.set_time}}
-        </li>
-        <li class="list-group-item">
-            <b>Duration</b><br />
-            {{asti_pass.duration}}s
-        </li>
-    </ul>
-</div>
-<div class="col-sm-6">
-    <ul class="list-group">
-        <li class="list-group-item">
-            <div class="row">
-                <div class="col-md-12">
-                    <h3>Pass at Tohoku GRS</h3>
-                    <div class="tohoku-pass-countdown" data-date="{{tohoku_next_pass}}"></div>
-                </div>
-            </div>
-        </li>
-        <li class="list-group-item">
-            <b>Rise Time</b><br />
-            {{tohoku_pass.rise_time}}
-        </li>
-        <li class="list-group-item">
-            <b>Maximum Altitude Time</b><br />
-            {{tohoku_pass.max_altitude_time}}
-        </li>
-        <li class="list-group-item">
-            <b>Set Time</b><br />
-            {{tohoku_pass.set_time}}
-        </li>
-        <li class="list-group-item">
-            <b>Duration</b><br />
-            {{tohoku_pass.duration}}s
-        </li>
-    </ul>
+            </li>
+            <li class="list-group-item">
+                <b>Rise Time</b><br />
+                {{tohoku_pass.rise_time}}
+            </li>
+            <li class="list-group-item">
+                <b>Maximum Altitude Time</b><br />
+                {{tohoku_pass.max_altitude_time}}
+            </li>
+            <li class="list-group-item">
+                <b>Set Time</b><br />
+                {{tohoku_pass.set_time}}
+            </li>
+            <li class="list-group-item">
+                <b>Duration</b><br />
+                {{tohoku_pass.duration}}s
+            </li>
+        </ul>
+    </div>
 </div>
