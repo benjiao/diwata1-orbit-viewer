@@ -183,7 +183,7 @@ function loadMap(){
 
         main_map.panTo(new L.LatLng(original_coordinates.geometry.coordinates[1], original_coordinates.geometry.coordinates[0]));
 
-        setInterval(function(){
+        window.refresh_position = setInterval(function(){
             if (!window.map_was_moved){
                 $.getJSON('http://api.orbit.phl-microsat.xyz/diwata1', function(data){
                     diwata_marker.setLatLng(new L.LatLng(data.geometry.coordinates[1], data.geometry.coordinates[0]));
