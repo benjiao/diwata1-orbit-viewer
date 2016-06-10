@@ -69,7 +69,7 @@ function loadClocks(){
                 rise_azimuth: asti_pass.rise_azimuth,
                 set_azimuth: asti_pass.set_azimuth,
                 max_altitude: asti_pass.max_altitude,
-                duration: asti_pass.duration
+                duration: sec_to_hms(asti_pass.duration)
             },
             tohoku_pass: {
                 rise_time: moment.unix(tohoku_pass.rise_time).tz("Asia/Manila").format('MMMM DD, YYYY HH:mm:ss z'),
@@ -78,7 +78,7 @@ function loadClocks(){
                 rise_azimuth: tohoku_pass.rise_azimuth,
                 set_azimuth: tohoku_pass.set_azimuth,
                 max_altitude: tohoku_pass.max_altitude,
-                duration: tohoku_pass.duration
+                duration: sec_to_hms(tohoku_pass.duration)
             },
         }
         $('#clocks').html(Mustache.render(template, data));
@@ -242,7 +242,7 @@ function loadAstiPasses(){
                 rise_azimuth: results.data[i].rise_azimuth,
                 set_azimuth: results.data[i].set_azimuth,
                 max_altitude: results.data[i].max_altitude,
-                duration: results.data[i].duration});
+                duration: sec_to_hms(results.data[i].duration)});
         }
 
         $.get('templates/passes-table-summary.html', function(template){
@@ -271,11 +271,20 @@ function loadTohokuPasses(){
                 rise_azimuth: results.data[i].rise_azimuth,
                 set_azimuth: results.data[i].set_azimuth,
                 max_altitude: results.data[i].max_altitude,
-                duration: results.data[i].duration});
+                duration: sec_to_hms(results.data[i].duration)});
         }
 
         $.get('templates/passes-table-summary.html', function(template){
             $('.tohoku-passes').html(Mustache.render(template, {"passes": passes}));
         });
     });
+}
+
+
+function sec_to_hms(s) {
+    var h = Math.floor(s / 3600);
+    s -= h * 3600;
+    var m = Math.floor(s / 60);
+    s -= m * 60;
+    return h + ":" + (m < 10 ? '0' + m : m)+ ":" + (s < 10 ? '0' + s : s);
 }
