@@ -60,21 +60,21 @@ function loadClocks(){
         var asti_pass = window.asti_passes[window.current_asti_pass]
         var tohoku_pass = window.tohoku_passes[window.current_tohoku_pass]
         var data = {
-            asti_next_pass: moment.unix(asti_pass.rise_time, "UTC").tz("Asia/Manila").format("YYYY-MM-DD HH:mm:ss"),
-            tohoku_next_pass: moment.unix(tohoku_pass.rise_time, "UTC").tz("Asia/Manila").format("YYYY-MM-DD HH:mm:ss"),
+            asti_next_pass: moment.tz(asti_pass.rise_time, "Asia/Manila").format("YYYY-MM-DD HH:mm:ss"),
+            tohoku_next_pass: moment.tz(tohoku_pass.rise_time, "Asia/Manila").format("YYYY-MM-DD HH:mm:ss"),
             asti_pass: {
-                rise_time: moment.unix(asti_pass.rise_time).tz("Asia/Manila").format('MMMM DD, YYYY HH:mm:ss z'),
-                set_time: moment.unix(asti_pass.set_time).tz("Asia/Manila").format('MMMM DD, YYYY HH:mm:ss z'),
-                max_altitude_time: moment.unix(asti_pass.max_altitude_time).tz("Asia/Manila").format('MMMM DD, YYYY HH:mm:ss z'),
+                rise_time: moment.tz(asti_pass.rise_time, "Asia/Manila").format('MMMM DD, YYYY HH:mm:ss z'),
+                set_time: moment.tz(asti_pass.set_time, "Asia/Manila").format('MMMM DD, YYYY HH:mm:ss z'),
+                max_altitude_time: moment.tz(asti_pass.max_altitude_time, "Asia/Manila").format('MMMM DD, YYYY HH:mm:ss z'),
                 rise_azimuth: asti_pass.rise_azimuth,
                 set_azimuth: asti_pass.set_azimuth,
                 max_altitude: asti_pass.max_altitude,
                 duration: sec_to_hms(asti_pass.duration)
             },
             tohoku_pass: {
-                rise_time: moment.unix(tohoku_pass.rise_time).tz("Asia/Manila").format('MMMM DD, YYYY HH:mm:ss z'),
-                set_time: moment.unix(tohoku_pass.set_time).tz("Asia/Manila").format('MMMM DD, YYYY HH:mm:ss z'),
-                max_altitude_time: moment.unix(tohoku_pass.max_altitude_time).tz("Asia/Manila").format('MMMM DD, YYYY HH:mm:ss z'),
+                rise_time: moment.tz(tohoku_pass.rise_time, "Asia/Manila").format('MMMM DD, YYYY HH:mm:ss z'),
+                set_time: moment.tz(tohoku_pass.set_time, "Asia/Manila").format('MMMM DD, YYYY HH:mm:ss z'),
+                max_altitude_time: moment.tz(tohoku_pass.max_altitude_time, "Asia/Manila").format('MMMM DD, YYYY HH:mm:ss z'),
                 rise_azimuth: tohoku_pass.rise_azimuth,
                 set_azimuth: tohoku_pass.set_azimuth,
                 max_altitude: tohoku_pass.max_altitude,
@@ -200,8 +200,6 @@ function loadMap(){
 
     // Add track for satelite path
     $.getJSON('http://api.orbit.phl-microsat.xyz/diwata1-path.geojson?hours=1', function(data){
-        console.log(data);
-
         var orbit_path_layer = L.geoJson(data, {
             style: function(feature){
                 if (feature.properties.is_entry_point) {
@@ -223,7 +221,7 @@ function loadMap(){
 }
 
 function loadAstiPasses(){
-    return $.getJSON('http://api.orbit.phl-microsat.xyz/passes/41463', {
+    return $.getJSON('http://api.orbit.phl-microsat.xyz/v1/passes/41463', {
         lon: 121.071999,
         lat: 14.647318,
         alt: 77.0
@@ -231,14 +229,15 @@ function loadAstiPasses(){
     function(results){
         var passes = []
 
+        console.log(results)
         window.asti_passes = results.data;
         window.current_asti_pass = 0;
 
         for (var i=0; i < results.data.length; i++) {
             passes.push({
-                rise_time: moment.unix(results.data[i].rise_time).tz("Asia/Manila").format('MMMM DD, YYYY HH:mm:ss'),
-                set_time: moment.unix(results.data[i].set_time).tz("Asia/Manila").format('MMMM DD, YYYY HH:mm:ss'),
-                max_altitude_time: moment.unix(results.data[i].max_altitude_time).tz("Asia/Manila").format('MMMM DD, YYYY HH:mm:ss'),
+                rise_time: moment.tz(results.data[i].rise_time, 'Asia/Manila').format('MMMM DD, YYYY HH:mm:ss'),
+                set_time: moment.tz(results.data[i].set_time, 'Asia/Manila').format('MMMM DD, YYYY HH:mm:ss'),
+                max_altitude_time: moment.tz(results.data[i].max_altitude_time, 'Asia/Manila').format('MMMM DD, YYYY HH:mm:ss'),
                 rise_azimuth: results.data[i].rise_azimuth,
                 set_azimuth: results.data[i].set_azimuth,
                 max_altitude: results.data[i].max_altitude,
@@ -252,7 +251,7 @@ function loadAstiPasses(){
 }
 
 function loadTohokuPasses(){
-    return $.getJSON('http://api.orbit.phl-microsat.xyz/passes/41463', {
+    return $.getJSON('http://api.orbit.phl-microsat.xyz/v1/passes/41463', {
         lon: 140.8361905280001,
         lat: 38.257947638000076,
         alt: 0
@@ -265,9 +264,9 @@ function loadTohokuPasses(){
 
         for (var i=0; i < results.data.length; i++) {
             passes.push({
-                rise_time: moment.unix(results.data[i].rise_time).tz("Asia/Manila").format('MMMM DD, YYYY HH:mm:ss'),
-                set_time: moment.unix(results.data[i].set_time).tz("Asia/Manila").format('MMMM DD, YYYY HH:mm:ss'),
-                max_altitude_time: moment.unix(results.data[i].max_altitude_time).tz("Asia/Manila").format('MMMM DD, YYYY HH:mm:ss'),
+                rise_time: moment.tz(results.data[i].rise_time, 'Asia/Manila').format('MMMM DD, YYYY HH:mm:ss'),
+                set_time: moment.tz(results.data[i].set_time, 'Asia/Manila').format('MMMM DD, YYYY HH:mm:ss'),
+                max_altitude_time: moment.tz(results.data[i].max_altitude_time, 'Asia/Manila').format('MMMM DD, YYYY HH:mm:ss'),
                 rise_azimuth: results.data[i].rise_azimuth,
                 set_azimuth: results.data[i].set_azimuth,
                 max_altitude: results.data[i].max_altitude,
